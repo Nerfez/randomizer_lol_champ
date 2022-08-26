@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Randomizer LoL</title>
+</head>
+<body>
+	<div class="wrapper">
+		<canvas class="color_border border" id="responsive_canvas"></canvas>
+	</div>
+	<div class="button_below">
+		<button onclick="Randomise()" style="background-color: #2565AE; min-width: 124px; min-height: 62px;
+    font-family: Inter;
+    font-size: 2em;
+    margin: 6px 3px; "class="button">Randomize</button>
+	</div>
+</body>
+
+<script>
+let champ_Name = 'sup_bard';
+let TOP = ['top_aatrox', 'top_akali'];
+let JGL = ['jgl_belveth', 'jgl_amumu'];
+let MID = ['mid_ahri', 'mid_akali', 'mid_aurelion'];
+let ADC = ['adc_caitlyn', 'adc_draven'];
+let SUP = ['sup_alistar', 'sup_bard'];
+
+function Randomise() {
+	let number = getRandomInt(5);
+	if(number == 0)
+	{
+	let champ_Number = getRandomInt(TOP.length);
+	champ_Name = TOP[champ_Number];
+	}
+	if(number == 1)
+	{
+	let champ_Number = getRandomInt(JGL.length);
+	champ_Name = JGL[champ_Number];
+	}
+	if(number == 2)
+	{
+	let champ_Number = getRandomInt(MID.length);
+	champ_Name = MID[champ_Number];
+	}
+	if(number == 3)
+	{
+	let champ_Number = getRandomInt(ADC.length);
+	champ_Name = ADC[champ_Number];
+	}
+	if(number == 4)
+	{
+	let champ_Number = getRandomInt(SUP.length);
+	champ_Name = SUP[champ_Number];
+	}
+	document.getElementById("responsive_canvas").style.backgroundImage = "url('img/"+champ_Name+".jpg')";
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+</script>

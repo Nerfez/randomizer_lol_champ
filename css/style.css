@@ -1,0 +1,47 @@
+body {
+	margin-top: 180px;
+	font-family: Impact, fantasy;
+	background-color: #2565AE;
+}
+
+#responsive_canvas {
+	width: 100%;
+    margin-top: 4px;
+	width: 250px;
+	height: 282px;
+}
+
+.img_champ {
+    width: 100%;
+	height: auto;display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.color_border {
+    background-color: #2565AE;
+}
+
+.border {
+    border: 3px solid #FFEF00;
+}
+
+.button_below {
+	margin-top: 40px;
+	text-align: center;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    color : #FFEF00;
+}
+
+.button:hover {
+	color : white;
+	cursor: pointer;
+}
