@@ -12,10 +12,12 @@
 
   <div class="column">
 <canvas id="canvas" width="500" height="500"></canvas>
-<input type="button" value="spin" style="background-color: #2565AE; min-width: 124px; min-height: 62px;
-    font-family: Inter;
+<input type="button" value="SPIN" style="background-color: #2565AE; min-width: 124px; min-height: 62px;
     font-size: 2em;
     margin: 6px 3px; "class="button" id='spin' />
+	<input type="button" value="CLEAR" style="background-color: #2565AE; min-width: 124px; min-height: 62px;
+    font-size: 2em;
+    margin: 6px 3px; "class="button" onclick="Clear()" />
 	</div>
   
   
@@ -24,6 +26,13 @@
 	<div class="wrapper">
 		<canvas class="color_border border" id="responsive_canvas"></canvas>
 	</div>
+	
+	<div class="backgroundmsg border">
+			<ul id="mychat">
+				<li>HISTORIQUE DES ROLES ET CHAMPIONS</li>
+				<li><span id="role"></span><label id="champions"></label></li>
+			</ul>
+		</div>
 	</div>
 </div>
 
@@ -126,7 +135,7 @@ function drawRouletteWheel() {
 function spin() {
   spinAngleStart = Math.random() * 10 + 10;
   spinTime = 0;
-  spinTimeTotal = Math.random() * 3 + 4 * 1000;
+  spinTimeTotal = Math.random() * 3 + 6 * 1000;
   rotateWheel();
 }
 
@@ -201,9 +210,54 @@ let text = options[index];
 	champ_Name = SUP[champ_Number];
 	}
 	document.getElementById("responsive_canvas").style.backgroundImage = "url('img/"+champ_Name+".jpg')";
+	EcrireMessage();
 }
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
+
+  function EcrireMessage(){
+  let degrees = startAngle * 180 / Math.PI + 90;
+  let arcd = arc * 180 / Math.PI;
+  let index = Math.floor((360 - degrees % 360) / arcd);
+  let text = options[index];
+  const d = new Date();
+		let h = addZero(d.getHours());
+		let m = addZero(d.getMinutes());
+		let s = addZero(d.getSeconds());
+		let time = h + ":" + m + ":" + s;
+  const node = document.createElement("li");
+
+		// Create a text node:
+		const textnode = document.createTextNode(text + " | " + champ_Name.substring(4, champ_Name.length) + " | " + time);
+
+		// Append the text node to the "li" node:
+		node.appendChild(textnode);
+
+		// Append the "li" node to the list:
+		document.getElementById("mychat").appendChild(node);
+  }
+  
+  function Clear()
+  {
+	document.getElementById("mychat").innerHTML = "";
+	const node = document.createElement("li");
+
+		// Create a text node:
+		const textnode = document.createTextNode("HISTORIQUE DES ROLES ET CHAMPIONS");
+
+		// Append the text node to the "li" node:
+		node.appendChild(textnode);
+
+		// Append the "li" node to the list:
+		document.getElementById("mychat").appendChild(node);
+	startAngle = 0;
+	drawRouletteWheel();
+  }
+  
+  function addZero(i) {
+		if (i < 10) {i = "0" + i}
+		return i;
+		}
 </script>
