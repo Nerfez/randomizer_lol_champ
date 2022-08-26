@@ -1,7 +1,9 @@
 body {
-	margin-top: 180px;
-	font-family: Impact, fantasy;
 	background-color: #2565AE;
+}
+
+*{
+	font-family: Impact;
 }
 
 #responsive_canvas {
@@ -31,12 +33,6 @@ body {
 	text-align: center;
 }
 
-.wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .button {
     color : #FFEF00;
 }
@@ -45,3 +41,25 @@ body {
 	color : white;
 	cursor: pointer;
 }
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+
+ul {
+  list-style: none;
+  }
+  
+	.backgroundmsg{
+		color : white;
+    	background: #2565AE;
+    	padding: .5em .1em;
+    	min-height : 300px;
+    	margin-bottom: 20px;
+		width: 500px;
+		height: 564px;
+    }
